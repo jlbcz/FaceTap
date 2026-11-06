@@ -22,6 +22,7 @@ If a camera view is needed, use a person who has agreed to appear, or show the s
 | `dashboard.png` | The administrative dashboard |
 | `employee-management.png` | The employee list |
 | `attendance-monitoring.png` | The attendance overview |
+| `schedule-management.png` | The schedule management page |
 | `reports.png` | A report or its PDF |
 
 FaceTap currently manages employees, so `employee-management.png` is the name to use. `student-management.png` would apply only if student records are added to the system later.

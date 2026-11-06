@@ -1,223 +1,567 @@
+<div align="center">
+
 # FaceTap
+
+### Facial Recognition Attendance Management System
+
+![Status](https://img.shields.io/badge/status-active%20development-brightgreen)
+![Python](https://img.shields.io/badge/Python-3.11%2B-blue)
+![Flask](https://img.shields.io/badge/Flask-Backend-black)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Neon-336791)
+![JavaScript](https://img.shields.io/badge/JavaScript-Frontend-F7DF1E)
+![Raspberry Pi](https://img.shields.io/badge/Raspberry%20Pi-Kiosk-C51A4A)
+![Source Code](https://img.shields.io/badge/source-private-red)
+
+FaceTap is a facial recognition-based attendance system built to automate employee attendance, simplify workforce monitoring, and provide centralized attendance management through a Raspberry Pi kiosk and web application.
+
+</div>
 
 > **This repository contains public documentation for FaceTap only. The application source code is maintained separately in a private repository.**
 >
 > Public access to this documentation does not grant access to, or permission to reuse, the private FaceTap source code.
 
-FaceTap is a facial recognition-based attendance system designed to make employee attendance recording faster, more convenient, and easier to manage.
+---
 
-The system combines facial recognition, attendance processing, Raspberry Pi hardware, and a web-based management interface to provide a more automated alternative to traditional attendance methods.
+## About FaceTap
 
-## About the Project
+FaceTap is an attendance management system that uses facial recognition to identify registered employees and automatically process their attendance.
 
-FaceTap was developed as an attendance and monitoring system that allows employees to record their attendance using facial recognition.
+The system combines a Raspberry Pi-based kiosk, camera-based face recognition, a Flask backend, a PostgreSQL database, and a web-based administration dashboard.
 
-The system is designed to reduce manual attendance encoding, simplify attendance monitoring, and provide administrators with an organized way to manage employee records, schedules, attendance logs, and reports.
+Instead of relying only on traditional attendance methods such as logbooks, ID scanning, or manual encoding, FaceTap allows registered employees to record their attendance through facial recognition.
 
-FaceTap uses a Raspberry Pi-based kiosk for attendance capture and a web application for system administration and monitoring.
+The system is designed to manage the full attendance workflow, including employee records, schedules, time-in and time-out, leave records, attendance status, monitoring, and reporting.
 
-## Key Features
+---
 
-- Facial recognition-based attendance
-- Employee time-in and time-out recording
-- Raspberry Pi kiosk integration
-- Camera-based face capture
+## Main Features
+
+FaceTap includes functionality for:
+
+- Facial recognition attendance
+- Employee time-in and time-out
+- Raspberry Pi attendance kiosk
+- Raspberry Pi Camera Module integration
+- Face registration
 - Employee management
 - Attendance monitoring
+- Attendance history
 - Schedule management
-- Leave and attendance status management
+- AM and PM schedules
+- Leave management
+- Official Business records
+- Sick Leave records
+- Attendance status management
+- Daily attendance processing
+- Required working hours
 - Attendance reports
 - Administrative dashboard
-- Automated attendance processing
-- Web-based system management
+- Staff access
+- Role-based system access
+- Automated attendance notifications
+- Remote kiosk management
+- Responsive web interface
+- PostgreSQL database integration
+- Cloud database hosting through Neon
 
-## How It Works
+---
 
-The FaceTap attendance process follows a simple workflow:
+## How FaceTap Works
+
+The employee uses the FaceTap kiosk to record attendance.
+
+The general process is:
 
 ```text
 Employee
    ↓
-Camera Capture
+Raspberry Pi Camera
    ↓
 Face Detection
    ↓
 Face Recognition
    ↓
-Identity Verification
+Employee Identification
    ↓
-Attendance Processing
+Schedule and Attendance Validation
    ↓
-Database
+Time-In / Time-Out Processing
    ↓
-Dashboard and Reports
+PostgreSQL Database
+   ↓
+Dashboard / Monitoring / Reports
 ```
 
-Employees use the FaceTap kiosk to scan their face. Once a registered employee is recognized, the system processes the attendance record according to the employee's schedule and current attendance status.
+When a face is detected, FaceTap attempts to identify the employee using their registered facial data.
 
-Authorized staff can then view and manage attendance records through the web-based dashboard.
+After a successful match, the system checks the employee's current attendance record, assigned schedule, time, and attendance rules before determining the correct action.
+
+Depending on the current attendance state, FaceTap can process actions such as time-in or time-out while preventing unnecessary duplicate records.
+
+---
 
 ## System Components
 
-FaceTap is composed of several connected components:
+FaceTap consists of several connected components.
 
-### Attendance Kiosk
+### Raspberry Pi Kiosk
 
-The kiosk serves as the primary attendance terminal.
+The kiosk acts as the physical attendance terminal.
 
-It includes:
+It is responsible for:
 
-- Raspberry Pi
-- Camera module
+- Camera access
+- Face detection
+- Face recognition
+- Employee identification
+- Attendance requests
+- Attendance confirmation
+- Kiosk notifications
+- Real-time attendance interaction
+
+Typical kiosk hardware includes:
+
+- Raspberry Pi 4
+- Raspberry Pi Camera Module
 - Display
-- Facial recognition functionality
-- Attendance interface
+- Raspberry Pi power supply
+- Cooling system or heatsink
+- Network connection
+- Custom enclosure
+
+---
 
 ### Web Application
 
-The web application provides access to administrative and attendance management features.
+The FaceTap web application provides the management side of the system.
 
-It is used for:
+Authorized users can use the web application to manage:
 
-- Employee management
-- Attendance monitoring
-- Schedule configuration
-- Leave management
+- Employees
+- Attendance records
+- Schedules
+- Leave records
+- Attendance statuses
 - Reports
+- User accounts
 - System configuration
+- Kiosk-related functions
+
+The web application communicates with the database and provides centralized access to attendance information.
+
+---
 
 ### Database
 
-FaceTap uses PostgreSQL with Neon for database hosting.
+FaceTap uses PostgreSQL as its relational database.
 
-The database stores application data such as employee information, schedules, attendance records, and other system-related information.
+The current database is hosted using Neon.
+
+The database stores system information such as:
+
+- Employee records
+- Attendance logs
+- User accounts
+- Schedules
+- Leave information
+- Attendance statuses
+- Application configuration
+- Historical records
+
+---
+
+## Programming Languages
+
+FaceTap uses several programming languages across its backend, frontend, and device interfaces.
+
+### Python
+
+![Python](https://img.shields.io/badge/Python-3776AB)
+
+Python is used primarily for:
+
+- Backend application logic
+- Flask web application
+- Facial recognition processing
+- Camera integration
+- Attendance processing
+- Database operations
+- Raspberry Pi functionality
+- Automation
+- Server-side validation
+
+---
+
+### JavaScript
+
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E)
+
+JavaScript is used for frontend functionality such as:
+
+- User interactions
+- Dynamic dashboard components
+- Forms
+- Interface behavior
+- Asynchronous requests
+- Kiosk interactions
+- Responsive frontend features
+
+---
+
+### HTML
+
+![HTML5](https://img.shields.io/badge/HTML5-E34F26)
+
+HTML provides the structure of the FaceTap web interface, including:
+
+- Dashboard pages
+- Forms
+- Employee management views
+- Attendance interfaces
+- Reports
+- Kiosk pages
+
+---
+
+### CSS
+
+![CSS3](https://img.shields.io/badge/CSS3-1572B6)
+
+CSS is used for:
+
+- Layout
+- Responsive design
+- Dashboard styling
+- Kiosk interface styling
+- Components
+- Animations
+- Visual consistency
+
+---
+
+### SQL
+
+![SQL](https://img.shields.io/badge/SQL-PostgreSQL-336791)
+
+SQL is used for interacting with the PostgreSQL database.
+
+It supports operations related to:
+
+- Employees
+- Attendance
+- Schedules
+- Leave records
+- Accounts
+- Reports
+- Application data
+
+---
 
 ## Technology Stack
 
-The project uses a combination of web, database, computer vision, and embedded technologies.
-
-| Category | Technology |
+| Area | Technology |
 | --- | --- |
-| Backend | Python / Flask |
-| Database | PostgreSQL |
-| Database Hosting | Neon |
+| Backend | Python |
+| Web Framework | Flask |
 | Frontend | HTML, CSS, JavaScript |
-| Hardware | Raspberry Pi |
+| Database | PostgreSQL |
+| Database Platform | Neon |
+| Facial Recognition | Python-based computer vision |
+| Hardware Platform | Raspberry Pi |
 | Camera | Raspberry Pi Camera Module |
-| Version Control | Git / GitHub |
-| Networking | Cloudflare |
+| Version Control | Git |
+| Repository Hosting | GitHub |
+| Networking / Deployment | Cloudflare |
+| Web Interface | Flask + HTML/CSS/JavaScript |
 
-Additional technologies may be used depending on the deployment configuration.
+---
 
 ## System Architecture
 
 ```mermaid
-flowchart LR
+flowchart TD
     A[Employee] --> B[FaceTap Kiosk]
-    B --> C[Camera]
-    C --> D[Face Detection and Recognition]
-    D --> E[Attendance Processing]
-    E --> F[(PostgreSQL / Neon)]
-    F --> G[Web Application]
-    G --> H[Admin / Staff Dashboard]
-    G --> I[Attendance Reports]
+
+    B --> C[Raspberry Pi Camera]
+    C --> D[Face Detection]
+    D --> E[Face Recognition]
+    E --> F[Employee Verification]
+
+    F --> G[Attendance Processing Engine]
+
+    G --> H[(PostgreSQL Database / Neon)]
+
+    H --> I[Flask Backend]
+
+    I --> J[Admin Dashboard]
+    I --> K[Staff Interface]
+    I --> L[Attendance Monitoring]
+    I --> M[Reports]
+    I --> N[Employee Management]
 ```
 
-The kiosk handles attendance capture while the web application provides management, monitoring, and reporting functionality.
-
-## Hardware
-
-A typical FaceTap kiosk may include:
-
-- Raspberry Pi
-- Raspberry Pi Camera Module
-- Display
-- Raspberry Pi-compatible power supply
-- Network connection
-- Cooling solution or heatsink
-- Custom kiosk enclosure
-
-The exact hardware configuration may vary depending on the deployment environment.
-
-## Attendance Management
-
-FaceTap is designed to support common attendance operations such as:
-
-- Time-in
-- Time-out
-- Attendance status tracking
-- Employee schedules
-- Morning and afternoon schedules
-- Leave records
-- Attendance history
-- Attendance reports
-
-Attendance rules can be configured according to the requirements of the organization using the system.
+---
 
 ## Facial Recognition
 
-Facial recognition is used to identify registered employees during attendance scanning.
+FaceTap uses facial recognition to identify registered employees during attendance scanning.
 
-The general process includes:
+A simplified recognition pipeline is:
 
-1. Capturing a camera frame
-2. Detecting a face
-3. Processing the detected face
-4. Comparing it with registered facial data
-5. Identifying the employee
-6. Processing the appropriate attendance action
+```text
+Camera Frame
+    ↓
+Face Detection
+    ↓
+Face Processing
+    ↓
+Feature Extraction
+    ↓
+Face Comparison
+    ↓
+Employee Match
+    ↓
+Attendance Validation
+```
 
-The system is designed to improve the speed and convenience of attendance recording, but facial recognition results can still be affected by factors such as lighting, camera position, image quality, and environmental conditions.
+The recognition system works together with attendance validation rather than immediately creating an attendance record after every detected face.
 
-## Dashboard
+Face recognition accuracy can be affected by environmental conditions such as:
 
-The FaceTap dashboard provides an overview of attendance-related information and gives authorized users access to management functions.
+- Lighting
+- Camera angle
+- Distance
+- Motion
+- Image quality
+- Facial obstruction
 
-Depending on the user's role, the dashboard may provide access to:
+---
 
-- Attendance summaries
-- Employee records
-- Attendance logs
-- Schedules
-- Leave records
-- Reports
-- System settings
+## Attendance Processing
 
-## Security and Privacy
+After an employee is recognized, FaceTap checks the attendance context before saving a record.
 
-Because FaceTap processes employee and facial data, security and privacy are important parts of the system design.
+The system may evaluate:
 
-The project considers areas such as:
+- Employee identity
+- Current date
+- Current time
+- Existing attendance records
+- Assigned schedule
+- Morning schedule
+- Afternoon schedule
+- Required hours
+- Previous time-in
+- Previous time-out
+- Leave status
+- Attendance status
 
-- Authentication and authorization
-- Role-based access
-- Database security
-- Secure configuration
-- Protection of credentials
-- Access restrictions
-- Responsible handling of facial data
-- Attendance data protection
+This allows the system to determine the appropriate attendance action.
 
-Sensitive information such as passwords, database credentials, environment variables, API keys, and deployment secrets should never be included in public documentation or repositories.
+---
 
-## Screenshots
+## Employee Management
 
-Screenshots of the system may be added to the `screenshots` directory.
+Authorized users can manage employee information through the web application.
+
+Employee records may include:
+
+- Employee ID
+- Name
+- Department
+- Position
+- Employment status
+- Schedule
+- Facial registration information
+- Attendance history
+
+FaceTap also supports managing employee attendance-related information from a centralized interface.
+
+---
+
+## Schedule Management
+
+FaceTap supports employee scheduling.
+
+Schedules can be configured based on organizational requirements and may include:
+
+- AM schedule
+- PM schedule
+- Full-day schedule
+- Required hours
+- Time-in period
+- Time-out period
+
+These schedules are used during attendance processing.
+
+---
+
+## Leave Management
+
+FaceTap supports different attendance and leave classifications.
 
 Examples include:
 
+- Present
+- Late
+- Absent
+- Official Business
+- Sick Leave
+- Other configured leave types
+
+Authorized staff can update employee attendance statuses according to organizational policies.
+
+---
+
+## Reports
+
+FaceTap can provide attendance information for reporting and monitoring.
+
+Reports may contain:
+
+- Daily attendance
+- Time-in records
+- Time-out records
+- Employee attendance history
+- Late records
+- Absence records
+- Leave records
+- Schedule-based attendance information
+
+---
+
+## Dashboard
+
+The dashboard provides a centralized overview of FaceTap activity.
+
+Depending on permissions, users may have access to:
+
+- Attendance statistics
+- Employee information
+- Recent attendance
+- Attendance records
+- Schedules
+- Leave information
+- Reports
+- System settings
+- User management
+
+---
+
+## User Roles
+
+FaceTap uses role-based access to separate system responsibilities.
+
+Current system roles may include:
+
+- Admin
+- Staff
+- Kiosk
+
+Each role is provided only with the functionality required for its intended purpose.
+
+---
+
+## Security
+
+FaceTap includes security considerations across the application, database, and deployment layers.
+
+These include:
+
+- Authentication
+- Authorization
+- Role-based access
+- Session management
+- Protected application routes
+- Environment variable management
+- Database credential protection
+- Server-side validation
+- Secure deployment configuration
+
+Sensitive information such as passwords, API keys, database credentials, connection strings, and deployment secrets are not stored in this public repository.
+
+---
+
+## Privacy
+
+Because FaceTap works with employee and facial information, biometric data should be handled carefully.
+
+Important considerations include:
+
+- Restricted biometric data access
+- Employee authorization and consent
+- Secure storage
+- Appropriate data retention
+- Restricted administrator access
+- Secure backups
+- Responsible use of facial recognition
+
+The system should be deployed according to the policies and privacy requirements of the organization using it.
+
+---
+
+## Hardware
+
+The current FaceTap kiosk setup may include:
+
+| Component | Purpose |
+| --- | --- |
+| Raspberry Pi 4 | Main kiosk computer |
+| Raspberry Pi Camera Module | Face capture |
+| Display | Kiosk interface |
+| Heatsink / Cooling | Raspberry Pi thermal management |
+| Network Connection | Server/database communication |
+| Power Supply | Kiosk power |
+| Enclosure | Physical kiosk housing |
+
+---
+
+## Repository Structure
+
+This repository contains FaceTap project documentation and public project information.
+
+```text
+FaceTap/
+├── README.md
+├── LICENSE
+├── .gitignore
+├── assets/
+├── docs/
+└── screenshots/
+```
+
+---
+
+## Screenshots
+
+System screenshots can be stored in:
+
 ```text
 screenshots/
-├── kiosk.png
-├── dashboard.png
-├── employee-management.png
-├── attendance-monitoring.png
-└── reports.png
 ```
+
+Examples:
+
+```text
+dashboard.png
+kiosk.png
+employee-management.png
+attendance-monitoring.png
+schedule-management.png
+reports.png
+```
+
+---
 
 ## Documentation
 
-Additional information about FaceTap can be found in the `docs` directory.
+More detailed documentation can be stored inside:
+
+```text
+docs/
+```
+
+Recommended documentation includes:
 
 ```text
 docs/
@@ -231,52 +575,69 @@ docs/
 └── project-status.md
 ```
 
-## Project Status
+---
 
-FaceTap is actively being developed and improved.
+## Development Status
 
-Development currently focuses on areas such as:
+![Development](https://img.shields.io/badge/development-active-brightgreen)
 
-- Attendance reliability
-- Facial recognition performance
-- Kiosk usability
-- System performance
-- Security
-- Responsive interface design
-- Reporting
-- Employee management
+FaceTap is currently under active development.
+
+Current areas of development and improvement include:
+
+- Facial recognition reliability
+- Attendance processing accuracy
+- Camera performance
+- Raspberry Pi performance
+- Kiosk experience
+- Responsive user interface
+- Dashboard improvements
+- Database reliability
+- Attendance reports
+- Security improvements
+- Remote kiosk management
 - Hardware integration
 
-Features and implementation details may change as the system continues to evolve.
+---
 
-## Future Improvements
+## Current Platform
 
-Possible future improvements include:
-
-- Further facial recognition optimization
-- Improved kiosk performance
-- Additional reporting tools
-- Better attendance analytics
-- Improved device management
-- Additional administrative controls
-- Expanded notification features
-- Improved system monitoring
-- Further UI and UX improvements
-
-## Repository Structure
+FaceTap currently uses:
 
 ```text
-FaceTap/
-├── README.md
-├── LICENSE
-├── .gitignore
-├── assets/
-├── docs/
-└── screenshots/
+Python
+Flask
+HTML
+CSS
+JavaScript
+PostgreSQL
+Neon
+Raspberry Pi
+Raspberry Pi Camera
+Git
+GitHub
+Cloudflare
 ```
 
-## About FaceTap
+---
 
-FaceTap was created as a practical attendance management project that combines web development, facial recognition, database technologies, and Raspberry Pi hardware into a single system.
+## Repository Notice
 
-The project continues to evolve as new functionality, performance improvements, and usability enhancements are introduced.
+![Documentation](https://img.shields.io/badge/documentation-public-blue)
+![Source](https://img.shields.io/badge/source%20code-private-red)
+
+This repository provides public information and documentation about FaceTap.
+
+The production application, deployment configuration, credentials, and internal implementation are maintained separately.
+
+---
+
+<div align="center">
+
+### FaceTap
+
+Facial Recognition Attendance Management System
+
+`Python` • `Flask` • `JavaScript` • `PostgreSQL` • `Neon` • `Raspberry Pi`
+
+</div>
