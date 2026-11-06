@@ -16,10 +16,6 @@ FaceTap is a facial recognition-based attendance system built to automate employ
 
 </div>
 
-> **This repository contains public documentation for FaceTap only. The application source code is maintained separately in a private repository.**
->
-> Public access to this documentation does not grant access to, or permission to reuse, the private FaceTap source code.
-
 ---
 
 ## About FaceTap
@@ -624,7 +620,6 @@ Cloudflare
 ## Repository Notice
 
 ![Documentation](https://img.shields.io/badge/documentation-public-blue)
-![Source](https://img.shields.io/badge/source%20code-private-red)
 
 This repository provides public information and documentation about FaceTap.
 
