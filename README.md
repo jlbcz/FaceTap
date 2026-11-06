@@ -617,6 +617,8 @@ Cloudflare
 
 ---
 
+<div align="center">
+
 ## Repository Notice
 
 ![Documentation](https://img.shields.io/badge/documentation-public-blue)
@@ -624,6 +626,8 @@ Cloudflare
 This repository provides public information and documentation about FaceTap.
 
 The production application, deployment configuration, credentials, and internal implementation are maintained separately.
+
+</div>
 
 ---
 
