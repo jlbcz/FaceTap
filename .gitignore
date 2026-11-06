@@ -1,0 +1,89 @@
+# This repository holds public documentation only.
+# These rules are a safety net. Check `git status` before every commit anyway.
+
+# Secrets and private configuration
+.env
+.env.*
+*.pem
+*.key
+*.crt
+*.cer
+*.p12
+*.pfx
+*.gpg
+*.asc
+id_rsa*
+id_ed25519*
+secrets/
+credentials/
+secrets*
+credentials*
+.mcp.json
+.pgpass
+.netrc
+
+# Databases, dumps and biometric data
+*.db
+*.db-wal
+*.db-shm
+*.sqlite
+*.sqlite3
+*.sql
+*.dump
+*.npy
+*.npz
+*.onnx
+instance/
+storage/
+faces/
+database/
+models/
+
+# Archives and backups, which may contain private data
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.tar.bz2
+*.tar.xz
+*.gz
+*.7z
+*.rar
+*.bak
+*.bak-*
+*.backup
+*.old
+*.orig
+backups/
+backup/
+
+# Logs
+*.log
+logs/
+
+# Application source code belongs in the private repository
+*.py
+*.pyc
+*.php
+*.ipynb
+*.service
+__pycache__/
+.venv/
+venv/
+facetap/
+tests/
+scripts/
+deploy/
+
+# Operating system, editor and tool files
+.DS_Store
+Thumbs.db
+desktop.ini
+*~
+*.swp
+*.swo
+*.tmp
+.idea/
+.vscode/
+.claude/
+node_modules/
