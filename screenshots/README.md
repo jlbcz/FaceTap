@@ -18,11 +18,11 @@ If a camera view is needed, use a person who has agreed to appear, or show the s
 
 | Filename | What it should show |
 |---|---|
-| `login-page.png` | The sign-in page |
-| `admin-dashboard.png` | The administrator dashboard |
-| `attendance-monitoring.png` | The attendance overview, or the kiosk screen |
+| `kiosk.png` | The attendance kiosk screen |
+| `dashboard.png` | The administrative dashboard |
 | `employee-management.png` | The employee list |
-| `attendance-report.png` | A report or its PDF |
+| `attendance-monitoring.png` | The attendance overview |
+| `reports.png` | A report or its PDF |
 
 FaceTap currently manages employees, so `employee-management.png` is the name to use. `student-management.png` would apply only if student records are added to the system later.
 
@@ -34,4 +34,4 @@ FaceTap currently manages employees, so `employee-management.png` is the name to
 
 ## Adding them to the main README
 
-The main `README.md` has a commented-out image table in its Screenshots section. Once the files exist, remove the comment markers (`<!--` and `-->`) around it. Remove the rows for any images you have not added, because a missing file shows as a broken image.
+The main `README.md` lists these filenames but does not display any images yet. To show one, add a line such as `![Dashboard](screenshots/dashboard.png)` to its Screenshots section. Add lines only for files that exist, because a missing file shows as a broken image.
